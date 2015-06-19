@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.cloud:spring-cloud-netflix-turbine-amqp:1.0.0.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-netflix-turbine-amqp/1.0.0.RELEASE/2f2081c618a45cea07f0e00885940fcf97d4313c/spring-cloud-netflix-turbine-amqp-1.0.0.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-netflix-turbine-amqp/1.0.0.RELEASE/7f21f5162d47551566337f2e19cfe9357e906211/spring-cloud-netflix-turbine-amqp-1.0.0.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

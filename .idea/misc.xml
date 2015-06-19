@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/microservices/api/product-api-service" />
+    <file type="web" url="file://$PROJECT_DIR$/microservices/composite/product-composite-service" />
+    <file type="web" url="file://$PROJECT_DIR$/microservices/core/product-service" />
+    <file type="web" url="file://$PROJECT_DIR$/microservices/core/recommendation-service" />
+    <file type="web" url="file://$PROJECT_DIR$/microservices/core/review-service" />
+    <file type="web" url="file://$PROJECT_DIR$/microservices/support/auth-server" />
+    <file type="web" url="file://$PROJECT_DIR$/microservices/support/discovery-server" />
+    <file type="web" url="file://$PROJECT_DIR$/microservices/support/edge-server" />
+    <file type="web" url="file://$PROJECT_DIR$/microservices/support/monitor-dashboard" />
+    <file type="web" url="file://$PROJECT_DIR$/microservices/support/turbine" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>
