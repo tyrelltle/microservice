@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/microservices/support/auth-server/auth-server.iml" filepath="$PROJECT_DIR$/microservices/support/auth-server/auth-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservices/support/discovery-server/discovery-server.iml" filepath="$PROJECT_DIR$/microservices/support/discovery-server/discovery-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservices/support/edge-server/edge-server.iml" filepath="$PROJECT_DIR$/microservices/support/edge-server/edge-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../staging/jhipster.iml" filepath="$PROJECT_DIR$/../../staging/jhipster.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservices/support/monitor-dashboard/monitor-dashboard.iml" filepath="$PROJECT_DIR$/microservices/support/monitor-dashboard/monitor-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ui/oauth2-ui.iml" filepath="$PROJECT_DIR$/ui/oauth2-ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservices/api/product-api-service/product-api-service.iml" filepath="$PROJECT_DIR$/microservices/api/product-api-service/product-api-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservices/composite/product-composite-service/product-composite-service.iml" filepath="$PROJECT_DIR$/microservices/composite/product-composite-service/product-composite-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservices/core/product-service/product-service.iml" filepath="$PROJECT_DIR$/microservices/core/product-service/product-service.iml" />

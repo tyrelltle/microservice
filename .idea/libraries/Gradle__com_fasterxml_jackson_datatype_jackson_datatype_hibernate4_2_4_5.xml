@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-hibernate4:2.4.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-hibernate4/2.4.5/9a1cd95faef7d5e6f52bdb66ba6687bd30523259/jackson-datatype-hibernate4-2.4.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-hibernate4/2.4.5/53fde5f70b6e43bc46ce6ecc7abf69a78d43a9a3/jackson-datatype-hibernate4-2.4.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

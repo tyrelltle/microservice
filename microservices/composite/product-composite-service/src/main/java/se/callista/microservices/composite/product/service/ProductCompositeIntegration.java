@@ -88,8 +88,8 @@ public class ProductCompositeIntegration {
             return util.createOkResponse(recommendations);
         } catch (Throwable t) {
             LOG.error("getRecommendations error", t);
-            throw t;
-//            throw new RuntimeException(t);
+ //            throw new RuntimeException(t);
+            return null;
         }
     }
 

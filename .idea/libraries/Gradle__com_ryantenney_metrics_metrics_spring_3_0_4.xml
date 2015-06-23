@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.ryantenney.metrics:metrics-spring:3.0.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ryantenney.metrics/metrics-spring/3.0.4/e515ded5159ee0972b4fdd5239db99860b7fe7e9/metrics-spring-3.0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ryantenney.metrics/metrics-spring/3.0.4/66cf9d041f87b8e7afbd75ddd381e1d5302c139f/metrics-spring-3.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

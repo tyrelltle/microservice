@@ -28,7 +28,7 @@ public class AuthserverApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AuthserverApplication.class, args);
 	}
-	
+
 	@Configuration
 	@EnableAuthorizationServer
 	protected static class OAuth2Config extends AuthorizationServerConfigurerAdapter {
