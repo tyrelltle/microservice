@@ -10,7 +10,7 @@ angular.module('jhipsterApp')
                 return $http.post('http://localhost:9999/uaa/oauth/token', data, {
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded",
-                        "Authorization": "Basic " + Base64.encode("webshop" + ':' + "acmesecret")
+                        "Authorization": "Basic " + Base64.encode("acme" + ':' + "acmesecret")
                     }
                 }).success(function (response) {
                     var expiredAt = new Date();
@@ -18,7 +18,11 @@ angular.module('jhipsterApp')
                     response.expires_at = expiredAt.getTime();
                     localStorageService.set('token', response);
                     return response;
-                });
+                }).error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                        console.log('asd');
+                    });
             },
             logout: function() {
                 // logout from the server
