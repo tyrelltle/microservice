@@ -26,7 +26,7 @@ angular.module('jhipsterApp')
             },
             logout: function() {
                 // logout from the server
-                $http.post('api/logout').then(function() {
+                $http.post('http://localhost:9999/uaa/api/logout').then(function() {
                     localStorageService.clearAll();
                 });
             },
