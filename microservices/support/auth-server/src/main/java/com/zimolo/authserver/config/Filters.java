@@ -1,4 +1,4 @@
-package config;
+package com.zimolo.authserver.config;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

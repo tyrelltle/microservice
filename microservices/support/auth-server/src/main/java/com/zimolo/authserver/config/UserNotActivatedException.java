@@ -1,4 +1,4 @@
-package config;
+package com.zimolo.authserver.config;
 
 import org.springframework.security.core.AuthenticationException;
 

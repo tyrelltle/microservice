@@ -1,4 +1,4 @@
-package config;
+package com.zimolo.authserver.config;
 
 /**
  * Application constants.

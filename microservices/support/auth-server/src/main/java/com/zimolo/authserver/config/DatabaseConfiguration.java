@@ -1,4 +1,4 @@
-package config;
+package com.zimolo.authserver.config;
 
 
 import com.mongodb.Mongo;
@@ -23,7 +23,7 @@ import java.util.List;
 
 @Configuration
 @Profile("!" + Constants.SPRING_PROFILE_CLOUD)
-@EnableMongoRepositories("repository")
+@EnableMongoRepositories("com.zimolo.authserver.repository")
 @Import(value = MongoAutoConfiguration.class)
 public class DatabaseConfiguration extends AbstractMongoConfiguration  {
 

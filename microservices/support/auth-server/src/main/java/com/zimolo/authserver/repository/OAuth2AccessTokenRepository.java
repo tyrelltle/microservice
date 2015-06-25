@@ -1,6 +1,6 @@
-package repository;
+package com.zimolo.authserver.repository;
 
-import domain.OAuth2AuthenticationAccessToken;
+import com.zimolo.authserver.domain.OAuth2AuthenticationAccessToken;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

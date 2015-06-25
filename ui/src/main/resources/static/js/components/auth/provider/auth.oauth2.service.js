@@ -7,7 +7,7 @@ angular.module('jhipsterApp')
                 var data = "username=" + credentials.username + "&password="
                     + credentials.password + "&grant_type=password&scope=webshop&" +
                     "client_secret=acmesecret&client_id=acme";
-                return $http.post('http://localhost:9999/uaa/oauth/token', data, {
+                return $http.post('http://localhost:9999/oauth/token', data, {
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded",
                         "Authorization": "Basic " + Base64.encode("acme" + ':' + "acmesecret")
@@ -26,7 +26,7 @@ angular.module('jhipsterApp')
             },
             logout: function() {
                 // logout from the server
-                $http.post('http://localhost:9999/uaa/api/logout').then(function() {
+                $http.post('http://localhost:9999/api/logout').then(function() {
                     localStorageService.clearAll();
                 });
             },

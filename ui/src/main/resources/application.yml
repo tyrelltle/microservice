@@ -9,7 +9,7 @@ zuul:
       url: http://localhost:9000/resource
     user:
       path: /user/**
-      url: http://localhost:9999/uaa/user
+      url: http://localhost:9999/user
 
 spring:
   oauth2:
@@ -18,12 +18,12 @@ spring:
         secure: false
         path: /,/**/*.html
     client:
-      accessTokenUri: http://localhost:9999/uaa/oauth/token
-      userAuthorizationUri: http://localhost:9999/uaa/oauth/authorize
+      accessTokenUri: http://localhost:9999/oauth/token
+      userAuthorizationUri: http://localhost:9999/oauth/authorize
       clientId: acme
       clientSecret: acmesecret
     resource:
-      userInfoUri: http://localhost:9999/uaa/user
+      userInfoUri: http://localhost:9999/user
 logging:
   level:
     org.springframework.security: DEBUG

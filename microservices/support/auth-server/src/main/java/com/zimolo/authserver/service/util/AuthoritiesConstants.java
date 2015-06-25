@@ -1,4 +1,4 @@
-package config;
+package com.zimolo.authserver.service.util;
 
 /**
  * Constants for Spring Security authorities.

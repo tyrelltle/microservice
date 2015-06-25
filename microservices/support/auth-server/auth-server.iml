@@ -77,6 +77,18 @@
     <orderEntry type="library" exported="" name="Gradle: org.apache.commons:commons-lang3:3.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.springframework:spring-tx:4.0.9.RELEASE" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.mongodb:mongo-java-driver:2.12.5" level="project" />
-    <orderEntry type="library" name="Gradle: org.apache.commons:commons-lang3:3.3.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.springframework.boot:spring-boot-starter-thymeleaf:1.2.2.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.2.7" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.springframework.boot:spring-boot-starter-tomcat:1.2.2.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.thymeleaf:thymeleaf:2.1.4.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.apache.tomcat.embed:tomcat-embed-core:8.0.20" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.apache.tomcat.embed:tomcat-embed-el:8.0.20" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.apache.tomcat.embed:tomcat-embed-logging-juli:8.0.20" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.apache.tomcat.embed:tomcat-embed-websocket:8.0.20" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: ognl:ognl:3.0.8" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.javassist:javassist:3.16.1-GA" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.unbescape:unbescape:1.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: joda-time:joda-time:2.3" level="project" />
   </component>
 </module>

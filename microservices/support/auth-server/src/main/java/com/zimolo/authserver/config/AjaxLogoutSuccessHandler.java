@@ -1,4 +1,4 @@
-package config;
+package com.zimolo.authserver.config;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

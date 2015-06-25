@@ -1,15 +1,15 @@
-package config;
+package com.zimolo.authserver.config;
 
-import domain.OAuth2AuthenticationAccessToken;
-import domain.OAuth2AuthenticationRefreshToken;
+import com.zimolo.authserver.domain.OAuth2AuthenticationAccessToken;
+import com.zimolo.authserver.domain.OAuth2AuthenticationRefreshToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2RefreshToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.AuthenticationKeyGenerator;
 import org.springframework.security.oauth2.provider.token.DefaultAuthenticationKeyGenerator;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import repository.OAuth2AccessTokenRepository;
-import repository.OAuth2RefreshTokenRepository;
+import com.zimolo.authserver.repository.OAuth2AccessTokenRepository;
+import com.zimolo.authserver.repository.OAuth2RefreshTokenRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;

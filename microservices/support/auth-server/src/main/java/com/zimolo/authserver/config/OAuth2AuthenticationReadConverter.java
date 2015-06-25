@@ -1,4 +1,4 @@
-package config;
+package com.zimolo.authserver.config;
 
 import com.mongodb.DBObject;
 import org.springframework.core.convert.converter.Converter;

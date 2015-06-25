@@ -1,4 +1,4 @@
-package domain;
+package com.zimolo.authserver.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

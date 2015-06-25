@@ -34,10 +34,16 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-undertow")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.data:spring-data-mongodb")
     compile('org.apache.commons:commons-lang3:3.1')
     compile("org.springframework.security.oauth:spring-security-oauth2:2.0.6.RELEASE")
-
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile('org.springframework:spring-core:3.2.5.RELEASE')
+    compile('org.springframework:spring-beans:3.2.5.RELEASE')
+    compile('org.springframework:spring-context:3.2.5.RELEASE')
+    compile('org.apache.commons:commons-lang3:3.0')
+    compile('joda-time:joda-time:2.3')
     testCompile("org.springframework.boot:spring-boot-starter-test") {
         exclude(module: 'commons-logging')
     }
