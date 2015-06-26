@@ -90,5 +90,10 @@
     <orderEntry type="library" exported="" name="Gradle: org.javassist:javassist:3.16.1-GA" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.unbescape:unbescape:1.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: joda-time:joda-time:2.3" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.mongeez:mongeez:0.9.3" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.apache.commons:commons-digester3:3.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: cglib:cglib:2.2.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: commons-beanutils:commons-beanutils:1.8.3" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: asm:asm:3.3.1" level="project" />
   </component>
 </module>

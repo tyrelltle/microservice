@@ -1,5 +1,7 @@
 package com.zimolo.authserver.config;
 
+import com.zimolo.authserver.domain.User;
+import com.zimolo.authserver.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +9,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Authenticate a user from the database.
@@ -22,42 +24,31 @@ public class UserDetailsService implements org.springframework.security.core.use
     private final Logger log = LoggerFactory.getLogger(UserDetailsService.class);
 
 
-    private static class user{
-        public String uname;
-        public String pswd;
-        public user(String u, String p){
-            uname=u;
-            pswd=p;
-        }
-    }
-
-    private static List<user> users;
-    static{
-        users=new ArrayList<user>();
-        users.add(new user("admin","admin"));
-        users.add(new user("admin1","admin1"));
-        users.add(new user("admin2","admin2"));
-
-    }
-
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private UserRepository userRepository;
 
     @Override
      public UserDetails loadUserByUsername(final String login) {
         log.debug("Authenticating {}", login);
+        String lowercaseLogin = login.toLowerCase();
+        Optional<User> userFromDatabase =  userRepository.findOneByLogin(lowercaseLogin);
+        return userFromDatabase.map(user -> {
+           // if (!user.getActivated()) {
+           // throw new UserNotActivatedException("User " + lowercaseLogin + " was not activated");
+           // }
+            try {
+                List<GrantedAuthority> grantedAuthorities = user.getAuthorities().stream()
+                        .map(authority -> new SimpleGrantedAuthority(authority.getName()))
+                        .collect(Collectors.toList());
+                return new org.springframework.security.core.userdetails.User(lowercaseLogin,
+                        user.getPassword(),
+                        grantedAuthorities);
+            } catch (Exception e) {
+                log.debug("asd");
+                return null;
+            }
 
-        return users.stream()
-                .filter(u->u.uname.equals(login))
-                .findAny()
-                .map(u-> {
-                    List<GrantedAuthority> authlis=new ArrayList<GrantedAuthority>();
-                    authlis.add(new SimpleGrantedAuthority("ADMIN"));
-                     return new org.springframework.security.core.userdetails.User(
-                            login,
-                            passwordEncoder.encode(u.pswd),
-                             authlis);
-                }).orElseThrow(()->new UsernameNotFoundException("sdf"));
+        }).orElseThrow(() -> new UsernameNotFoundException("User " + lowercaseLogin + " was not found in the database"));
 
 
     }

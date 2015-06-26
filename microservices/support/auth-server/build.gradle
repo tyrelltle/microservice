@@ -12,6 +12,7 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
@@ -44,6 +45,7 @@ dependencies {
     compile('org.springframework:spring-context:3.2.5.RELEASE')
     compile('org.apache.commons:commons-lang3:3.0')
     compile('joda-time:joda-time:2.3')
+    compile group: 'org.mongeez', name: 'mongeez', version: '0.9.3'
     testCompile("org.springframework.boot:spring-boot-starter-test") {
         exclude(module: 'commons-logging')
     }
