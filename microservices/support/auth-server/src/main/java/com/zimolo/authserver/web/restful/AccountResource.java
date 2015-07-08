@@ -1,21 +1,26 @@
 package com.zimolo.authserver.web.restful;
 
+import com.zimolo.authserver.domain.Authority;
 import com.zimolo.authserver.domain.User;
+import com.zimolo.authserver.repository.UserRepository;
+import com.zimolo.authserver.service.UserService;
+import com.zimolo.authserver.service.util.SecurityUtils;
+import com.zimolo.authserver.web.restful.dto.UserDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import com.zimolo.authserver.repository.UserRepository;
-import com.zimolo.authserver.service.UserService;
-import com.zimolo.authserver.web.restful.dto.UserDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing the current user's account.
@@ -83,10 +88,10 @@ public class AccountResource {
             .map(user -> new ResponseEntity<String>(HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
-
-    *//**
+**/
+    /**
      * GET  /authenticate -> check if the user is authenticated, and return its login.
-     *//*
+     */
     @RequestMapping(value = "/authenticate",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -95,9 +100,19 @@ public class AccountResource {
         return request.getRemoteUser();
     }
 
-    *//**
+    /**
+     * GET  /user -> get the current user.
+     */
+    @RequestMapping(value = "/user",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserDTO> getUser() {
+        return getAccount();
+    }
+
+    /**
      * GET  /account -> get the current user.
-     *//*
+     */
     @RequestMapping(value = "/account",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -119,9 +134,9 @@ public class AccountResource {
             .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
-    *//**
+    /**
      * POST  /account -> update the current user information.
-     *//*
+     */
     @RequestMapping(value = "/account",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -137,9 +152,9 @@ public class AccountResource {
             .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
-    *//**
+    /**
      * POST  /change_password -> changes the current user's password
-     *//*
+     */
     @RequestMapping(value = "/account/change_password",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -163,7 +178,7 @@ public class AccountResource {
                     request.getServerName() +
                     ":" +
                     request.getServerPort();
-            mailService.sendPasswordResetMail(user, baseUrl);
+            //mailService.sendPasswordResetMail(user, baseUrl);
             return new ResponseEntity<>("e-mail was sent", HttpStatus.OK);
             }).orElse(new ResponseEntity<>("e-mail address not registered", HttpStatus.BAD_REQUEST));
         
@@ -182,5 +197,5 @@ public class AccountResource {
 
     private boolean checkPasswordLength(String password) {
       return (!StringUtils.isEmpty(password) && password.length() >= UserDTO.PASSWORD_MIN_LENGTH && password.length() <= UserDTO.PASSWORD_MAX_LENGTH);
-    }*/
+    }
 }

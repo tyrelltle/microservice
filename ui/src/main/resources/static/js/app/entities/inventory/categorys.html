@@ -1,0 +1,138 @@
+
+
+
+<div>
+
+    <h2 translate="zimoloApp.category.home.title">Categories</h2>
+
+
+    <div class="row top-buffer">
+        <div class="col-md-4">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#saveCategoryModal" ng-click="clear()">
+                <span class="glyphicon glyphicon-flash"></span> <span translate="zimoloApp.category.home.createLabel">Create a new Category</span>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="saveCategoryModal" tabindex="-1" role="dialog" aria-labelledby="myCategoryLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myCategoryLabel" translate="zimoloApp.category.home.createOrEditLabel">Create or edit a Category</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div ng-show="category.id!=undefined">
+                            <input  type="file" accept="image/*" ngf-select="" ng-model="picFile" name="file">
+                            <button type="button" class="btn btn-primary" ng-click="uploadimg(picFile)">保存产品相片</button>
+                            <img ng-show="imgupload_states.showimg" class="thumb col-md-12" ng-src="{{imgupload_states.url}}">
+                        </div>
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="category.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label  >Name</label>
+                            <input type="text" class="form-control" name="name"
+                                   ng-model="category.name">
+                        </div>
+
+                        <div class="form-group">
+                            <label  >Width</label>
+                            <input type="text" class="form-control" name="width"
+                                   ng-model="category.width">
+                        </div>
+
+                        <div class="form-group">
+                            <label  >Height</label>
+                            <input type="text" class="form-control" name="height"
+                                   ng-model="category.height">
+                        </div>
+
+                        <div class="form-group">
+                            <label  >Unit Price</label>
+                            <input type="text" class="form-control" name="unit_price"
+                                   ng-model="category.unit_price">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteCategoryConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(category.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="zimoloApp.category.delete.question" translate-values="{id: '{{category.id}}'}">Are you sure you want to delete this Category?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row top-buffer">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" ng-class="{'mynew-row': ((index) % count) === 10 }"
+             ng-repeat="category in categorys">
+            <div class="mylabel">
+                    <img  width="100%" ng-src="{{category.imgurl}}"></img>
+                    <div>Name: {{category.name}}</div>
+                    <div>Default Height: {{category.height}}</div>
+                    <div>Default Width: {{category.width}}</div>
+
+                    <div>Product Quantity: {{category.product_quantity}}</div>
+                    <button type="submit"
+                            ui-sref="product({category_id:category.id})"
+                            class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view">Products</span>
+                    </button>
+                    <button type="submit"
+                            ng-click="showUpdate(category.id)"
+                            class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                    </button>
+                    <button type="submit"
+                            ui-sref="categoryImport({id:category.id})"
+                            class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span >Import Products</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+         </table>
+    </div>
+</div>
+

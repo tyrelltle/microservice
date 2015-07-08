@@ -7,7 +7,7 @@ info:
 spring:
   oauth2:
     resource:
-      userInfoUri: http://localhost:9999/user
+      userInfoUri: http://localhost:9999/api/user
 
 endpoints:
   restart:

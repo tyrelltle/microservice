@@ -31,7 +31,11 @@
                                 </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <!-- JHipster will add entities to the menu here -->
+                        <li ui-sref-active="active" ><a ui-sref="category"><span class="glyphicon glyphicon-asterisk"></span>
+                            &#xA0;<span>Inventory</span></a></li>
+
+                        <li ui-sref-active="active" ><a ui-sref="productout"><span class="glyphicon glyphicon-asterisk"></span>
+                            &#xA0;<span>Product Checkout</span></a></li>
                     </ul>
                 </li>
                 <li ng-class="{active: $state.includes('account')}" class="dropdown pointer">

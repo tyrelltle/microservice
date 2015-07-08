@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QR Testing</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	// Put event listeners into place
+	canvas='';
+	window.addEventListener("DOMContentLoaded", function() {
+		// Grab elements, create settings, etc.
+		 canvas = document.getElementById("qr-canvas"),
+			// content = canvas.getContext("2d"),
+			video = document.getElementById("video"),
+			videoObj = { "video": true },
+			errBack = function(error) {
+				console.log("Video capture error: ", error.code); 
+			};
+
+		// Put video listeners into place
+		if(navigator.getUserMedia) { // Standard
+			navigator.getUserMedia(videoObj, function(stream) {
+				video.src = stream;
+				video.play();
+			}, errBack);
+		} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+			navigator.webkitGetUserMedia(videoObj, function(stream){
+				video.src = window.webkitURL.createObjectURL(stream);
+				video.play();
+			}, errBack);
+		}
+		else if(navigator.mozGetUserMedia) { // Firefox-prefixed
+			navigator.mozGetUserMedia(videoObj, function(stream){
+				video.src = window.URL.createObjectURL(stream);
+				video.play();
+			}, errBack);
+		}
+	}, false);
+	</script>
+
+
+	<script>
+	// Trigger photo take
+		$(document).ready(function(){
+		document.getElementById("snap").addEventListener("click", function(){
+			var checkstr = "weixin.qq.com";
+			var returnstr = " ";
+			var ctx = canvas.getContext("2d");
+			do{
+				setTimeout(function(){
+					ctx.drawImage(video, 0, 0, 640, 480);
+					qrcode.callback = function(res){
+						returnstr = res;
+					};
+				}, 200);
+			} while(returnstr.indexOf(checkstr) == -1);
+			console.log(returnstr);
+		});
+	});
+	</script>
+
+	<script type="text/javascript" src="grid.js"></script>
+	<script type="text/javascript" src="version.js"></script>
+	<script type="text/javascript" src="detector.js"></script>
+	<script type="text/javascript" src="formatinf.js"></script>
+	<script type="text/javascript" src="errorlevel.js"></script>
+	<script type="text/javascript" src="bitmat.js"></script>
+	<script type="text/javascript" src="datablock.js"></script>
+	<script type="text/javascript" src="bmparser.js"></script>
+	<script type="text/javascript" src="datamask.js"></script>
+	<script type="text/javascript" src="rsdecoder.js"></script>
+	<script type="text/javascript" src="gf256poly.js"></script>
+	<script type="text/javascript" src="gf256.js"></script>
+	<script type="text/javascript" src="decoder.js"></script>
+	<script type="text/javascript" src="qrcode.js"></script>
+	<script type="text/javascript" src="findpat.js"></script>
+	<script type="text/javascript" src="alignpat.js"></script>
+	<script type="text/javascript" src="databr.js"></script>
+
+
+</head>
+
+<body>
+	<video id="video" width="640" height="480" autoplay></video>
+	<button id="snap">Snap Photo</button>
+	<canvas id="qr-canvas" width="640" height="480"></canvas>
+	
+</body>
+</html>

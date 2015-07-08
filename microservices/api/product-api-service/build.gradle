@@ -42,9 +42,9 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-eureka:1.0.0.RELEASE")
     compile("org.springframework.cloud:spring-cloud-starter-bus-amqp:1.0.0.RELEASE")
     compile("org.springframework.cloud:spring-cloud-netflix-hystrix-amqp:1.0.0.RELEASE")
-
     compile("org.springframework.cloud:spring-cloud-starter-security:1.0.0.RELEASE")
     compile("org.springframework.security.oauth:spring-security-oauth2:2.0.6.RELEASE")
+    compile('org.springframework.data:spring-data-mongodb:1.7.1.RELEASE')
 
     compile("org.apache.httpcomponents:httpclient:4.2.1")
     compile("org.apache.httpcomponents:fluent-hc:4.2.1")

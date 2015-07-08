@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QR Testing</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+
+	<script type="text/javascript" src="grid.js"></script>
+	<script type="text/javascript" src="version.js"></script>
+	<script type="text/javascript" src="detector.js"></script>
+	<script type="text/javascript" src="formatinf.js"></script>
+	<script type="text/javascript" src="errorlevel.js"></script>
+	<script type="text/javascript" src="bitmat.js"></script>
+	<script type="text/javascript" src="datablock.js"></script>
+	<script type="text/javascript" src="bmparser.js"></script>
+	<script type="text/javascript" src="datamask.js"></script>
+	<script type="text/javascript" src="rsdecoder.js"></script>
+	<script type="text/javascript" src="gf256poly.js"></script>
+	<script type="text/javascript" src="gf256.js"></script>
+	<script type="text/javascript" src="decoder.js"></script>
+	<script type="text/javascript" src="qrcode.js"></script>
+	<script type="text/javascript" src="findpat.js"></script>
+	<script type="text/javascript" src="alignpat.js"></script>
+	<script type="text/javascript" src="databr.js"></script>
+    <script type="text/javascript" src="haha.js"></script>
+
+
+</head>
+
+<body style="background-color: white !important">
+	<video id="video" width="640" height="480" autoplay></video>
+	<button id="start" class="btn btn-primary">Start to scan</button>
+    <div class="alert alert-success" style="width:600px" id="qrcode" role="alert"></div>
+	<canvas id="qr-canvas" style="display:none" width="640" height="480"></canvas>
+	
+</body>
+</html>

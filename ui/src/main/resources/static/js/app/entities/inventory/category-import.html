@@ -1,0 +1,42 @@
+
+<div>
+    <input ng-show="products.length==0" type="number" class="input-sm col-md-2 col-sm-12" ng-model="quantity" placeholder="Enter the import quantity...">
+    <button ng-show="products.length==0" type="submit" class="btn btn-info" ng-click="import()">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Import</span>
+    </button>
+
+    <button ng-show="products.length>0" type="submit" class="btn btn-info" ng-click="printqr()">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Print QrCode</span>
+    </button>
+
+     <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Unit Price</th>
+                <th>Total Price</th>
+
+            </tr>
+            </thead>
+            <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+            <tr ng-repeat="product in products">
+                <td><a ui-sref="productDetail({id:product.id})">{{product.sku}}</a></td>
+                <td>{{product.name}}</td>
+                <td>{{product.width}}</td>
+                <td>{{product.height}}</td>
+                <td>{{product.unit_price}}</td>
+                <td>{{product.price}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="submit"
+                ui-sref="category"
+                class="btn btn-info">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+        </button>
+    </div>
+</div>
