@@ -65,15 +65,15 @@ angular.module('jhipsterApp')
 
 
         $scope.refresh = function () {
-            //$scope.reset();
+            $scope.reset();
             $('#saveProductModal').modal('hide');
             $scope.clear();
         };
 
         $scope.clear = function () {
             $scope.product = {name: null, id: null};
-            $scope.editForm.$setPristine();
-            $scope.editForm.$setUntouched();
+           // $scope.editForm.$setPristine();
+           // $scope.editForm.$setUntouched();
         };
 
 

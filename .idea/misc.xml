@@ -5,6 +5,7 @@
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/microservices/api/product-api-service" />
+    <file type="web" url="file://$PROJECT_DIR$/microservices/api/productout-api-service" />
     <file type="web" url="file://$PROJECT_DIR$/microservices/composite/product-composite-service" />
     <file type="web" url="file://$PROJECT_DIR$/microservices/core/product-service" />
     <file type="web" url="file://$PROJECT_DIR$/microservices/core/recommendation-service" />
