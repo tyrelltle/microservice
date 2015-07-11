@@ -1,10 +1,12 @@
 package config;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.security.oauth2.sso.EnableOAuth2Sso;
 import org.springframework.cloud.security.oauth2.sso.OAuth2SsoConfigurerAdapter;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -25,9 +27,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @SpringBootApplication
+@EnableAutoConfiguration
+@ComponentScan
 @EnableZuulProxy
 @EnableOAuth2Sso
+//@EnableWebMvc
 public class UiApplication {
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(UiApplication.class, args);
@@ -48,7 +54,7 @@ public class UiApplication {
 					.antMatchers("/api/activate")
 					.antMatchers("/api/account/reset_password/init")
 					.antMatchers("/api/account/reset_password/finish")
-					.antMatchers("/test/**");
+					.antMatchers("/qrcode");
 		}
 
 		@Override

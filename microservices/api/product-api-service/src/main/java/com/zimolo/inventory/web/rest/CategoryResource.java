@@ -133,13 +133,12 @@ public class CategoryResource {
     /**
      * upload a image
      */
-    @ResponseStatus(HttpStatus.OK)
+      @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/categorys/image/upload",
                     method = RequestMethod.POST)
     public void upload(@RequestParam("file") MultipartFile file, @RequestParam("category_id") String category_id ) throws IOException {
         inventoryService.uploadImage(file, category_id);
     }
-
 
 
     /**

@@ -3,9 +3,11 @@
 angular.module('jhipsterApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     'ngResource', 'ui.router', 'ngCookies', 'pascalprecht.translate', 'ngCacheBuster', 'infinite-scroll','ngFileUpload','monospaced.qrcode','ui.bootstrap'])
 
-    .run(function ($rootScope, $location, $window, $http, $state, $translate, Auth, Principal, Language, ENV, VERSION) {
+    .run(function ($rootScope, $location, $window, $http, $state, $translate, Auth, Principal, Language, ENV, VERSION,GATEWAY_URL,OAUTH_URL) {
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
+        $rootScope.GATEWAY_URL=GATEWAY_URL;
+        $rootScope.OAUTH_URL=OAUTH_URL;
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;

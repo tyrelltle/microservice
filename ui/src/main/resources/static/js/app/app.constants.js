@@ -3,7 +3,8 @@
 angular.module('jhipsterApp')
 
 .constant('ENV', 'dev')
-
+.constant('OAUTH_URL','http://localhost:9999')
+.constant('GATEWAY_URL','http://localhost:8765')
 .constant('VERSION', '0.1-SNAPSHOT')
 
 ;

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('jhipsterApp')
-    .factory('Category', function ($resource, DateUtils) {
-        return $resource('http://localhost:8765/api/product/categorys/:id', {}, {
+    .factory('Category', function ($resource, DateUtils,$rootScope) {
+        return $resource($rootScope.GATEWAY_URL+'/api/product/categorys/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
@@ -13,10 +13,10 @@ angular.module('jhipsterApp')
             },
             'update': { method:'PUT' }
         });
-    }).service('CategoryServices',['$http',function($http){
+    }).service('CategoryServices',['$http','$rootScope',function($http,$rootScope){
 
         this.importProduct=function(category_id,import_quantity,cb){
-            var url='http://localhost:8765/api/product/categorys/import';
+            var url=$rootScope.GATEWAY_URL+'/api/product/categorys/import';
             $http.post(url,{category_id:category_id, import_quantity:import_quantity}).success(function(data){
                 cb(data);
             });

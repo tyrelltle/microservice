@@ -21,4 +21,7 @@ eureka:
 
 logging:
   level:
-    se.callista: INFO
+     org.springframework.web: DEBUG
+
+multipart.maxFileSize: 128000KB
+multipart.maxRequestSize: 128000KB

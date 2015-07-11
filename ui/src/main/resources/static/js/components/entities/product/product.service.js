@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('jhipsterApp')
-    .factory('Product', function ($resource, DateUtils) {
-        return $resource('http://localhost:8765/api/product/products/:id', {}, {
+    .factory('Product', function ($resource, DateUtils,$rootScope) {
+        return $resource($rootScope.GATEWAY_URL+'/api/product/products/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',

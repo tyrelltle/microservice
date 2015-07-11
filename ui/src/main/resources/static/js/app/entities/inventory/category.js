@@ -54,7 +54,7 @@ angular.module('jhipsterApp')
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/entities/inventory/products.html',
+                        templateUrl: 'js/app/entities/inventory/products.html',
                         controller: 'ProductController'
                     }
                 }
@@ -69,7 +69,7 @@ angular.module('jhipsterApp')
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/entities/inventory/product-detail.html',
+                        templateUrl: 'js/app/entities/inventory/product-detail.html',
                         controller: 'ProductDetailController'
                     }
                 }

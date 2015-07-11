@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('jhipsterApp')
-    .factory('AuthServerProvider', function loginService($http, localStorageService, Base64) {
+    .factory('AuthServerProvider', function loginService($rootScope,$http, localStorageService, Base64) {
         return {
             login: function(credentials) {
                 var data = "username=" + credentials.username + "&password="
                     + credentials.password + "&grant_type=password&scope=webshop&" +
                     "client_secret=acmesecret&client_id=acme";
-                return $http.post('http://localhost:9999/oauth/token', data, {
+                return $http.post($rootScope.OAUTH_URL+'/oauth/token', data, {
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded",
                         "Authorization": "Basic " + Base64.encode("acme" + ':' + "acmesecret")
@@ -26,7 +26,7 @@ angular.module('jhipsterApp')
             },
             logout: function() {
                 // logout from the server
-                $http.post('http://localhost:9999/api/logout').then(function() {
+                $http.post($rootScope.OAUTH_URL+'/api/logout').then(function() {
                     localStorageService.clearAll();
                 });
             },

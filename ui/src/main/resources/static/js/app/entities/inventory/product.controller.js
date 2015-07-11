@@ -8,6 +8,7 @@ angular.module('jhipsterApp')
 
         $scope.loadAll = function() {
             Product.query({page: $scope.page, per_page: 20, category_id:$scope.category_id}, function(result, headers) {
+                if(headers==undefined) return;
                 $scope.links = ParseLinks.parse(headers('link'));
                 for (var i = 0; i < result.length; i++) {
                     $scope.products.push(result[i]);
@@ -20,8 +21,8 @@ angular.module('jhipsterApp')
             $scope.loadAll();
         };
         $scope.loadPage = function(page) {
-            $scope.page = page;
-            $scope.loadAll();
+            //$scope.page = page;
+            //$scope.loadAll();
         };
         $scope.loadAll();
 

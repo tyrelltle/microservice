@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('jhipsterApp')
-    .controller('CategoryController', function ($scope, Category,Upload) {
+    .controller('CategoryController', function ($scope, Category,Upload,$rootScope) {
         $scope.categorys = [];
         $scope.loadAll = function() {
             Category.query(function(result) {
                $scope.categorys = result;
                 $scope.categorys.forEach(function(cat){
-                    cat.imgurl='/api/imgget/categorys/'+cat.id+'/image/'+new Date().getTime().toString();
+                    cat.imgurl=$rootScope.GATEWAY_URL+'/api/product/imgget/categorys/'+cat.id+'/image/'+new Date().getTime().toString();
                 });
             });
         };
@@ -77,7 +77,7 @@ angular.module('jhipsterApp')
             if(file==null)
                 return;
             file.upload = Upload.upload({
-                url:'/api/categorys/image/upload',
+                url:$rootScope.GATEWAY_URL+'/api/product/categorys/image/upload',
                 method: 'POST',
                 file: file,
                 fields:{category_id:$scope.category.id}
@@ -88,7 +88,7 @@ angular.module('jhipsterApp')
                     alert(response.statusText);
                 else {
                     $scope.imgupload_states.showimg=true;
-                    $scope.imgupload_states.url='/api/imgget/categorys/'+$scope.category.id+'/image/'+new Date().getTime().toString();
+                    $scope.imgupload_states.url=$rootScope.GATEWAY_URL+'/api/product/imgget/categorys/'+$scope.category.id+'/image/'+new Date().getTime().toString();
                     $scope.refresh();
                     $scope.$apply();
                 }
