@@ -15,12 +15,6 @@ angular.module('jhipsterApp')
                         templateUrl: 'js/app/entities/productout/productout.html',
                         controller: 'ProductOutController'
                     }
-                },
-                resolve: {
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('product');
-                        return $translate.refresh();
-                    }]
                 }
             });
 
