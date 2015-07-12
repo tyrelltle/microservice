@@ -10,9 +10,9 @@ import java.util.List;
 
 @Controller
 public class pageResource {
-    @RequestMapping(value = "/test")
-    public String wow() {
-        return "test";
+    @RequestMapping(value = "/expo")
+    public String expo() {
+        return "expo";
     }
     @RequestMapping(value = "/qrcode/{start_sku}/{end_sku}")
     public String test(Model m, @PathVariable int start_sku, @PathVariable int end_sku) {
