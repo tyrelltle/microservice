@@ -105,14 +105,13 @@
 
 
     <div class="row top-buffer">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" ng-class="{'mynew-row': ((index) % count) === 10 }"
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4"
              ng-repeat="category in categorys">
-            <div class="mylabel">
-                    <img  width="100%" ng-src="{{category.imgurl}}"></img>
+            <div class="mylabel well well-custom">
+                    <img  width="100%" height="320px" ng-src="{{category.imgurl}}"></img>
                     <div>Name: {{category.name}}</div>
                     <div>Default Height: {{category.height}}</div>
                     <div>Default Width: {{category.width}}</div>
-
                     <div>Product Quantity: {{category.product_quantity}}</div>
                     <button type="submit"
                             ui-sref="product({category_id:category.id})"
@@ -132,6 +131,29 @@
                 </div>
             </div>
         </div>
+    <style type="text/css">.well-custom{background-color:white;}</style>
+    <style>
+        @media (max-width: 990px){
+            .well-custom>img {
+                height: 550px;
+            }}
+        @media (max-width: 768px){
+            .well-custom>img {
+                height: 450px;
+            }}
+        @media (max-width: 650px){
+            .well-custom>img {
+                height: 300px;
+            }}
+        @media (max-width: 450px){
+            .well-custom>img {
+                height: 250px;
+            }}
+        @media (max-width: 320px){
+            .well-custom>img {
+                height: 220px;
+            }}
+    </style>
          </table>
     </div>
 </div>

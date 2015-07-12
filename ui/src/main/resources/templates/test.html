@@ -3,61 +3,64 @@
       xsi:schemaLocation="http://www.thymeleaf.org " data-ng-app="monospaced.qrcode" id="ng-app">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Your request cannot be processed</title>
+    <title>Please Print QR</title>
 </head>
-<body  data-ng-init="foo='here comes qr!';bar='https://github.com/monospaced/angular-qrcode';v=4;e='M';s=274;">
-
+<body  data-ng-init="foo='here comes qr!';bar='https://github.com/monospaced/angular-qrcode';v=4;e='M';s=274;" style="margin: 0;">
+<div id="qr_page" style="margin_top: 0px; width: 800px;">
     <div th:each="line  : ${skus}">
 
-        <span th:each="sku  : ${line}">
-            <qrcode th:attr="data=${sku}" class="qr_class" style="display: inline-block"></qrcode>
-            <span th:text="${sku}"></span>
-            <img src="/assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
+        <span th:each="sku  : ${line}" style="display: inline-block; height: 70px; padding-bottom: 26px;">
+            
+            <qrcode th:attr="data=${sku}" class="qr_class" style="display: inline-block; width:70px; height: 70px;  padding-top: 0; padding-bottom: 0;"></qrcode>
+            <img src="/assets/images/logo2.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block;margin:0 85px 0 2px; float: right; height: 12px; padding-top: 25px; padding-bottom: 25px;"/>
+            <span th:text="${sku}" style="display: inline-block; padding-top: 26px; padding-bottom:26px; margin:0 2px 0 1px; float: right; font-size: 9pt;"></span>
+           
         </span>
     </div>
- <!--
-    <div>
-        <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
-         <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
-        <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
+</div>
+<!--
+   <div>
+       <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
         <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
-    </div>
+       <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
+       <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
+   </div>
 
-    <div>
-        <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
-        <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
-        <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
-        <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
-    </div>
+   <div>
+       <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
+       <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
+       <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
+       <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
+   </div>
 
-    <div>
-        <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
-        <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
-        <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
-        <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
-    </div>
+   <div>
+       <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
+       <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
+       <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
+       <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
+   </div>
 
-    <div>
-        <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
-        <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
-        <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
-        <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
-    </div>
+   <div>
+       <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
+       <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
+       <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
+       <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
+   </div>
 
-    <div>
-        <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
-        <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
-        <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
-        <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
-    </div>
+   <div>
+       <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
+       <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
+       <qrcode th:attr="data=${attr}" class="qr_class" style="display: inline-block"></qrcode>
+       <img src="assets/images/logo.png" class="logo_class" id="logo1" alt="logo1" style="display: inline-block"/>
+   </div>
 
 -->
 
 
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="http://monospaced.github.io/bower-qrcode-generator/js/qrcode.js"></script>
-    <script src="http://monospaced.github.io/bower-qrcode-generator/js/qrcode_UTF8.js"></script>
-    <script src="/js/components/util/qrcode.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="http://monospaced.github.io/bower-qrcode-generator/js/qrcode.js"></script>
+<script src="http://monospaced.github.io/bower-qrcode-generator/js/qrcode_UTF8.js"></script>
+<script src="/js/components/util/qrcode.js"></script>
 </body>
 </html>
 
