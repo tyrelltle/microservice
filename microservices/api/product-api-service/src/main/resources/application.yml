@@ -5,6 +5,11 @@ spring:
   oauth2:
     resource:
       userInfoUri: http://localhost:9999/api/user
+  data:
+      mongodb:
+          host: localhost
+          port: 27017
+          database: microserv_inventory
 
 management:
   security:

@@ -59,6 +59,7 @@
                 "created_date": new Date(),
                 "authorities": [{"_id": "ROLE_USER"}]
             });
+
         </script>
     </changeSet>
 </mongoChangeLog>

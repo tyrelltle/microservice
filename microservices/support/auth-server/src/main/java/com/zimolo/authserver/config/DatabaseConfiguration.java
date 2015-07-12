@@ -65,7 +65,7 @@ public class DatabaseConfiguration extends AbstractMongoConfiguration  {
         return new CustomConversions(converterList);
     }
     @Bean
-    @Profile("!" + Constants.SPRING_PROFILE_FAST)
+   // @Profile("!" + Constants.SPRING_PROFILE_FAST)
     public Mongeez mongeez() {
         log.debug("Configuring Mongeez");
         Mongeez mongeez = new Mongeez();

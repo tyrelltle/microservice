@@ -58,11 +58,7 @@ angular.module('jhipsterApp')
            // $scope.clear();
         };
 
-        $scope.clear = function () {
-            $scope.category = {name: null, id: null};
-            $scope.editForm.$setPristine();
-            $scope.editForm.$setUntouched();
-        };
+
 
 
         /**
@@ -102,7 +98,11 @@ angular.module('jhipsterApp')
             });
         }
 
-        $scope.close=function(){
-            $modalInstance.dismiss('cancel');
-        }
+        $scope.clear = function () {
+            $scope.category = {name: null, id: null};
+            $scope.editForm.$setPristine();
+            $scope.editForm.$setUntouched();
+            $scope.imgupload_states.showimg=false;
+            $scope.imgupload_states.url='';
+        };
     });

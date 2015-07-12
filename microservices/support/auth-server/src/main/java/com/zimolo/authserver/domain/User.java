@@ -21,7 +21,7 @@ import java.util.Set;
 /**
  * A user.
  */
-@Document(collection = "USER")
+@Document(collection = "JHI_USER")
 public class User extends AbstractAuditingEntity implements Serializable {
 
     @Id
