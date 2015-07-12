@@ -24,6 +24,8 @@
                         <h4 class="modal-title" id="myProductLabel">Create or edit a Product</h4>
                     </div>
                     <div class="modal-body">
+                        <qrcode data={{product.sku}} class="qr_class" style="display: inline-block; width:70px; height: 70px;  padding-top: 0; padding-bottom: 0;"></qrcode>
+
                         <div class="form-group">
                             <label>ID</label>
                             <input type="text" class="form-control" name="sku"
@@ -83,7 +85,8 @@
                 </tr>
             </thead>
             <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
-                <tr ng-repeat="product in products">
+
+            <tr ng-repeat="product in products">
                     <td><a ui-sref="productDetail({id:product.id})">{{product.sku}}</a></td>
                     <td>{{product.name}}</td>
                     <td>{{product.width}}</td>
