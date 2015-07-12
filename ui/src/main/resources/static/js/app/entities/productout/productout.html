@@ -18,29 +18,35 @@
 <script type="text/javascript" src="/js/components/util/qr/alignpat.js"></script>
 <script type="text/javascript" src="/js/components/util/qr/databr.js"></script>
 <script type="text/javascript" src="/js/components/util/qr/haha.js"></script>
+
 <!--end QR code stuff-->
 <div>
+    <h2>{{currentmode.title}}</h2>
+    <div class="btn-group">
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'new'">新产品出库</label>
+        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'hist'">历史出库纪录</label>
 
-    <h2>Select a category</h2>
-    <div class="row">
-        <div class="form-group">
-            <div class="col-xs-2 nopaddingLeft">
-                <input type="text" class="form-control" placeholder="搜索。。。" ng-model="checkout_state.sku">
-            </div>
-            <a class="btn btn-info" ng-click="checkout('sku')">
-                <span class="glyphicon icon-qrcode" aria-hidden="true"></span>产品编号出库
-            </a>
-            <a class="btn btn-info" ng-click="checkout('qr')">
-                <span class="glyphicon icon-qrcode" aria-hidden="true"></span>产品二维码出库
-            </a>
-        </div>
     </div>
-    <div class="table-responsive">
+
+    <a ng-if="currentmode==modes.new" class="btn btn-info" ng-click="checkout('sku')">
+        <span class="glyphicon icon-qrcode" aria-hidden="true"></span>产品编号出库
+    </a>
+    <a ng-if="currentmode==modes.new" class="btn btn-info" ng-click="checkout('qr')">
+        <span class="glyphicon icon-qrcode" aria-hidden="true"></span>产品二维码出库
+    </a>
+    <a ng-if="currentmode==modes.new" class="btn btn-info" ng-click="clearNewProducts()">
+        <span class="glyphicon icon-qrcode" aria-hidden="true"></span>新一轮出库
+    </a>
+    <a  class="btn btn-info" ng-click="print()">
+        <span class="glyphicon icon-qrcode" aria-hidden="true"></span>打印出库列表
+    </a>
+
+    <div class="table-responsive prodtab">
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>SKU</th>
-                <th translate="zimoloApp.product.name">Name</th>
+                <th>Name</th>
                 <th>Date Out</th>
                 <th>Width</th>
                 <th>Height</th>
@@ -50,7 +56,7 @@
             </tr>
             </thead>
             <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] <= page">
-            <tr ng-repeat="product in products">
+            <tr ng-repeat="product in currentmode.products">
                 <td><a ui-sref="productDetail({id:product.id})">{{product.sku}}</a></td>
                 <td>{{product.name}}</td>
                 <td>{{product.checkout_date}}</td>
@@ -76,7 +82,7 @@
 
     <div class="modal-body">
         <div ng-show="how=='qr' && sku==undefined">
-            <video id="video" style="width:100%" autoplay poster="img/camera.png"></video>
+            <video id="video" style="width:100%" autoplay ></video>
             <canvas id="qr-canvas" style="display: none" width="640" height="480"></canvas>
         </div>
 
