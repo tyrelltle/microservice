@@ -4,6 +4,14 @@ body {
     color: #333;
 }
 
+.top-buffer {
+    margin-top:20px;
+}
+
+.glyphicon {
+    vertical-align: text-top;
+}
+
 /* ==========================================================================
 Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 ========================================================================== */
@@ -22,6 +30,7 @@ Developement Ribbon
     left: 0;
     border: 0;
     z-index: 1000;
+    background-image: url("../images/development_ribbon.png");
     background-position: center center;
     background-repeat: no-repeat;
 }
@@ -66,11 +75,11 @@ Browser Upgrade Prompt
     background-color: red;
 }
 
-.hipster {
+.cactus {
     display: inline-block;
-    width: 347px;
-    height: 497px;
-    background: url("../images/hipster.png") no-repeat center top;
+    width: 610px;
+    height: 343px;
+    background: url("../images/cactus.png") no-repeat center top;
     background-size: contain;
 }
 
@@ -144,3 +153,34 @@ ul#strength {
     width:20px;
 }
 /* end Password strength bar style */
+
+
+
+/* category styles */
+.mytable {
+    height: 380px;
+    overflow: auto;
+    border-bottom: 1px solid #666;
+    margin-bottom: 10px;
+}
+
+.mylabel {
+    float: left;
+    text-align: left;
+    padding:10px;
+    cursor: pointer;
+    border:1px solid #c1c1c1;
+    border-radius: 4px;
+    width:100%;
+    margin-bottom: 20px;
+}
+
+.mylabel:hover {
+    background-color: #e8e8e8;
+}
+
+.mylabelselected {
+    background-color: #244363;
+}
+
+

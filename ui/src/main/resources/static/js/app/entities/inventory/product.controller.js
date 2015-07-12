@@ -37,6 +37,7 @@ angular.module('jhipsterApp')
             if($scope.product==undefined)
                 return;
             $scope.product.price=(+ newValues[0] * +newValues[1] )/144 * +newValues[2];
+            $scope.product.price=Math.floor(100 *  $scope.product.price) / 100;
         });
 
         $scope.print=function(){
