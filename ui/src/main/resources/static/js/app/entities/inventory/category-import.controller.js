@@ -18,7 +18,7 @@ angular.module('jhipsterApp')
 
         $scope.printqr=function(){
             var lastindex = ($scope.products.length - 1);
-            window.open('/qrcode/'+$scope.products[0].sku+'/'+$scope.products[lastindex].sku);
+            window.open('/qrcode/'+$scope.products[0].sku+'/'+$scope.products[lastindex].sku+'/'+$stateParams.categoryname);
         }
 
     });

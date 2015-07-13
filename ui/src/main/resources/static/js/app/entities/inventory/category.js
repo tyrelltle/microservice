@@ -19,7 +19,7 @@ angular.module('jhipsterApp')
             })
             .state('categoryImport', {
                 parent: 'entity',
-                url: '/category/:id',
+                url: '/category/:id/:categoryname',
                 data: {
                     roles: ['ROLE_USER'],
                     pageTitle: 'zimoloApp.category.import.title'

@@ -14,9 +14,9 @@ public class pageResource {
     public String expo() {
         return "expo";
     }
-    @RequestMapping(value = "/qrcode/{start_sku}/{end_sku}")
-    public String test(Model m, @PathVariable int start_sku, @PathVariable int end_sku) {
-        final int width=2;
+    @RequestMapping(value = "/qrcode/{start_sku}/{end_sku}/{category}")
+    public String test(Model m, @PathVariable int start_sku, @PathVariable int end_sku, @PathVariable String category) {
+        final int width=3;
 
 
         List<List> skus=new ArrayList<List>();
@@ -43,7 +43,7 @@ public class pageResource {
             skus.add(line);
 
         m.addAttribute("skus",skus);
-
+        m.addAttribute("category",category);
         return "test";
     }
 

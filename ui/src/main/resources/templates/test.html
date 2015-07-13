@@ -3,7 +3,7 @@
       xsi:schemaLocation="http://www.thymeleaf.org " data-ng-app="monospaced.qrcode" id="ng-app">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Please Print QR</title>
+    <title th:text="${category}"></title>
 </head>
 <body  data-ng-init="foo='here comes qr!';bar='https://github.com/monospaced/angular-qrcode';v=4;e='M';s=274;" style="margin: 0;">
 <div id="qr_page" style="margin_top: 0px; width: 800px;">
