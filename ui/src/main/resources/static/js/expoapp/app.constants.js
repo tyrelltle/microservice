@@ -3,8 +3,8 @@
 angular.module('ExpoApp')
 
 .constant('ENV', 'dev')
-.constant('OAUTH_URL','http://50.67.73.10:9999')
-.constant('GATEWAY_URL','http://50.67.73.10:8765')
+.constant('OAUTH_URL','http://localhost:9999')
+.constant('GATEWAY_URL','http://localhost:8765')
 .constant('VERSION', '0.1-SNAPSHOT')
 
 ;
