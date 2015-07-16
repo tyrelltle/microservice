@@ -68,6 +68,7 @@ docker {
     useApi=true
     maintainer = 'Magnus Larsson <magnus.larsson.ml@gmail.com>'
     baseImage = 'java:8'
+    hostUrl='http://192.168.59.103:2375'
 }
 
 task wrapper(type: Wrapper) {
