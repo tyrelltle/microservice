@@ -7,6 +7,8 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+
     }
 }
 
@@ -14,6 +16,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'docker'
 
 jar {
     baseName = 'discovery-server'
@@ -22,6 +25,8 @@ jar {
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+group = 'callista'
+mainClassName = 'se.callista.microservises.support.discovery.EurekaApplication'
 
 repositories {
     mavenCentral()
@@ -42,7 +47,16 @@ dependencies {
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+distDocker {
+    exposePort 8761
+    setEnvironment 'JAVA_OPTS', '-Dspring.profiles.active=docker'
+}
 
+docker {
+    useApi=true
+    maintainer = 'Magnus Larsson <magnus.larsson.ml@gmail.com>'
+    baseImage = 'java:8'
+}
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }

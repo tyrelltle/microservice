@@ -33,3 +33,15 @@ ribbon:
   ConnectTimeout: 3000
   ReadTimeout: 60000
 
+
+---
+# For deployment in Docker containers
+spring:
+  profiles: docker
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/

@@ -7,6 +7,8 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+
     }
 }
 
@@ -15,6 +17,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'docker'
 
 jar {
     baseName = 'auth-server'
@@ -23,6 +26,8 @@ jar {
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+group = 'callista'
+mainClassName = 'com.zimolo.authserver.Application'
 
 repositories {
     mavenCentral()
@@ -52,6 +57,17 @@ dependencies {
     testCompile('org.apache.httpcomponents:httpclient:4.3.6') {
         exclude(module: 'commons-logging')
     }
+}
+
+distDocker {
+    exposePort 9999
+    setEnvironment 'JAVA_OPTS', '-Dspring.profiles.active=docker'
+}
+
+docker {
+    useApi=true
+    maintainer = 'Magnus Larsson <magnus.larsson.ml@gmail.com>'
+    baseImage = 'java:8'
 }
 
 task wrapper(type: Wrapper) {

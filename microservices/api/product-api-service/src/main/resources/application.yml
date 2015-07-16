@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 8082
 
 spring:
   oauth2:
@@ -30,3 +30,25 @@ logging:
 
 multipart.maxFileSize: 128000KB
 multipart.maxRequestSize: 128000KB
+
+---
+# For deployment in Docker containers
+spring:
+  profiles: docker
+  oauth2:
+    resource:
+      userInfoUri: https://auth:9999/uaa/user
+
+server:
+  port: 8080
+
+app:
+  rabbitmq:
+    host: rabbitmq
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
