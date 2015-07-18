@@ -1,0 +1,7 @@
+#!/bin/bash
+mongorestore --host 52.26.87.144 --port 27017 --collection fs.chunks --db microserv_inventory ~/data/data/backup/zimolo/fs.chunks.bson
+mongorestore --host 52.26.87.144 --port 27017 --collection fs.files --db microserv_inventory ~/data/data/backup/zimolo/fs.files.bson
+mongorestore --host 52.26.87.144 --port 27017 --collection counters --db microserv_inventory ~/data/data/backup/zimolo/counters.bson
+mongorestore --host 52.26.87.144 --port 27017 --collection CATEGORY --db microserv_inventory ~/data/data/backup/zimolo/CATEGORY.bson
+mongorestore --host 52.26.87.144 --port 27017 --collection PRODUCT --db microserv_inventory ~/data/data/backup/zimolo/PRODUCT.bson
+mongorestore --host 52.26.87.144 --port 27017 --collection CHECKED_OUT_PRODUCT --db microserv_inventory ~/data/data/backup/zimolo/CHECKED_OUT_PRODUCT.bson
