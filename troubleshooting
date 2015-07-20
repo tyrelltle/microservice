@@ -1,0 +1,28 @@
+===on OSX, docker port 2375 refused error:
+https://github.com/sequenceiq/docker-socat
+which says run $(docker run sequenceiq/socat)
+dont forget to change
+docker {
+      useApi=true
+      maintainer = 'Magnus Larsson <magnus.larsson.ml@gmail.com>'
+      baseImage = 'java:8'
+      hostUrl='http://docker:2375'
+  }
+
+ip address should be correct docker address!is
+
+
+
+===on EC2 linux, docker port 2375 refused error:
+
+$ sudo <path to>/docker -H 0.0.0.0:2375 -d &
+
+
+===/etc/hosts add docker to known hosts
+
+===amazon linux install java8
+http://idroot.net/tutorials/how-to-install-java-jdk-8-on-centos-6/
+
+
+===install docker compose
+http://docs.docker.com/compose/install/
