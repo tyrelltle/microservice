@@ -1,0 +1,77 @@
+- After downloading the pem file:
+
+$ cd ~/downloads
+$ chmod 400 xxx.pem
+(optional, if not exist) $ mkdir -p ~/.ssh
+$ cp ~/downloads/xxx.pem ~/.ssh/
+$ chmod 400 ~/.ssh/xxx.pem
+$ chmod 700 ~/.ssh
+$ nano ~/.ssh/config
+
+----------------- (This is how the file looks like)
+Host hostname
+HostName ec2-xx-xx-xxx-xxx.us-west-2.compute.amazonaws.com
+User ubuntu
+IdentityFile "~/.ssh/xxx.pem"
+-----------------
+
+- Now you can connect to aws via ssh.
+- The next step is to install the nessesary tools, namely nodejs and screen.
+
+- To install node:
+$ sudo apt-get update
+$ sudo apt-get install -y python-software-properties python g++ make
+$ sudo add-apt-repository ppa:chris-lea/node.js
+$ sudo apt-get update
+$ sudo apt-get install -y nodejs
+
+- To test if node is properly installed:
+$ npm --version
+$ node --version
+
+- To install the latest version of node:
+$ curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+- then:
+$ sudo apt-get install -y nodejs
+
+- Now let's install screen:
+$ wget raw.github.com/startup-class/dotfiles/master/.screenrc -O .screenrc
+
+- To check if the screen file is correct:
+$ head .screenrc
+
+- Some useful commands of screen:
+$ Ctrl T, ? (help)
+$ Ctrl T, U (previous tab)
+$ Ctrl T, J (next tab)
+$ Ctrl T, Ctrl C (create new tab)
+$ Ctrl D (delete the tab)
+
+- For version control, let's now install git:
+$ sudo apt-get install git
+
+- Now to enable IP forwarding:
+$ cat /proc/sys/net/ipv4/ip_forward (check; 0 is disabled)
+$ sudo nano /etc/sysctl.conf
+
+- In the file, uncomment this line:
+net.ipv4.ip_forward
+
+- Now make the change effective:
+$ sudo sysctl -p /etc/sysctl.conf
+
+- Now check again:
+$ cat /proc/sys/net/ipv4/ip_forward
+
+- Lastly, set the 8080->80 port and set the firewall:
+$ sudo iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
+$ sudo iptables -A INPUT -p tcp -m tcp --sport 80 -j ACCEPT
+$ sudo iptables -A OUTPUT -p tcp -m tcp --dport 80 -j ACCEPT
+
+- Now to install mongodb: (for 3.0.2 see mongodb official website, then stackoverflow to fix the hugepage problem)
+$ sudo apt-get install mongodb
+$ sudo apt-get update
+
+- To start the server if the server is not automatically started:
+$ sudo service mongodb start
+$ mongo (to launch the mongodb shell)
