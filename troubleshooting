@@ -26,3 +26,10 @@ http://idroot.net/tutorials/how-to-install-java-jdk-8-on-centos-6/
 
 ===install docker compose
 http://docs.docker.com/compose/install/
+
+
+===test deployment on vitural box ubuntu server
+ssh timed out?
+configure in virtualbox settings -> network -> portforwarding, set:
+host ip: 127.0.0.1    host port: 2222    guest ip: [ifconfig in ubuntu image]   guest port: 22
+then in ur mac, type ssh tsa45@localhost -p 2222
