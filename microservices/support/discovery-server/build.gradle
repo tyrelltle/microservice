@@ -56,6 +56,8 @@ docker {
     useApi=true
     maintainer = 'Magnus Larsson <magnus.larsson.ml@gmail.com>'
     baseImage = 'java:8'
+    hostUrl='http://docker:2375'
+
 }
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'

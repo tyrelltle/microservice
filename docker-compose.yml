@@ -1,0 +1,21 @@
+discovery:
+  image: callista/discovery-server
+  ports:
+    - "8761:8761"
+
+auth:
+  image: callista/auth-server
+  ports:
+    - "9999:9999"
+
+edge:
+  image: callista/edge-server
+  ports:
+    - "8765:8765"
+
+inventory:
+  image: callista/product-api-service
+  links:
+    - auth
+    - discovery
+    - edge
