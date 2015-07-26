@@ -11,7 +11,8 @@ eureka:
   server:
     waitTimeInMsWhenSyncEmpty: 0
   password: ${SECURITY_USER_PASSWORD:password}
-
+  registration:
+    enabled: true
 ---
 spring:
   profiles: peer # not standalone
@@ -23,7 +24,8 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://user:${eureka.password}@127.0.0.1:8762/eureka/
-
+  registration:
+    enabled: true
 ---
 spring:
   profiles: other # not standalone
@@ -36,7 +38,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://user:${eureka.password}@127.0.1.1:8761/eureka/
-
+  registration:
+    enabled: true
 ---
 spring:
   profiles: local # connect to remote peer
@@ -48,5 +51,6 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://user:${eureka.password}@${PREFIX:}eureka.cfapps.io/eureka/
-
+  registration:
+    enabled: true
   

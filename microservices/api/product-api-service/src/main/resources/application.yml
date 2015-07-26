@@ -1,5 +1,8 @@
 server:
-  port: 0
+  port: 3000
+
+info:
+  component: Inventory Server
 
 spring:
   oauth2:
@@ -17,12 +20,13 @@ management:
 
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 10
+    leaseRenewalIntervalInSeconds: 3
     metadataMap:
       instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
-
   client:
-    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE:http://127.0.0.1:8761/eureka/}
+
 
 logging:
   level:

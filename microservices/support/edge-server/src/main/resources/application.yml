@@ -17,6 +17,11 @@ endpoints:
   health:
     sensitive: false
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE:http://127.0.0.1:8761}
+
 zuul:
   ignoredServices: "*"
   prefix: /api
